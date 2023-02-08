@@ -4,3 +4,17 @@ The extracted card details, language, and price are then used to sort the tradin
 
 Note: 
 The function "image_to_text" and "extract_card_details" are not provided in this code and need to be implemented based on the requirements.
+
+
+
+
+
+Links 
+Pokemon API
+https://pokeapi.co/
+
+Pokemon Database:
+https://pokemondb.net/
+
+CardMarket API Database
+https://api.cardmarket.com/ws/documentation
