@@ -1,0 +1,59 @@
+import requests
+import json
+
+def get_card_details(image_path):
+    # using some image recognition API to get the text from the image/video
+    card_text = image_to_text(image_path)
+
+    # extract the card name, set, and condition from the card text
+    card_name, card_set, card_condition = extract_card_details(card_text)
+
+    # check if the card exists in the pokemon API database
+    pokemon_api_url = "https://pokeapi.co/api/v2/card?name={}&set={}&condition={}".format(card_name, card_set, card_condition)
+    response = requests.get(pokemon_api_url)
+    if response.status_code != 200:
+        return None
+    card_data = response.json()
+
+    # get the language of the card from the pokemon API database
+    card_language = card_data['language']
+
+    # check the price of the card with the Cardmarket API
+    cardmarket_api_url = "https://api.cardmarket.com/ws/v2.0/output.json/products/find?search={}".format(card_name)
+    response = requests.get(cardmarket_api_url)
+    if response.status_code != 200:
+        return None
+    card_price_data = response.json()
+
+    card_price = card_price_data['product'][0]['price']
+
+    return {
+        'card_name': card_name,
+        'card_set': card_set,
+        'card_condition': card_condition,
+        'card_language': card_language,
+        'card_price': card_price
+    }
+
+def sort_cards_by_language(cards_data):
+    german_cards = []
+    other_cards = []
+    for card in cards_data:
+        if card['card_language'] == 'German':
+            german_cards.append(card)
+        else:
+            other_cards.append(card)
+    return {
+        'German': german_cards,
+        'Other': other_cards
+    }
+
+if __name__ == '__main__':
+    # provide the path to the image/video of the trading card
+    image_path = "path/to/image.jpg"
+    card_data = get_card_details(image_path)
+    if card_data is None:
+        print("Unable to get card data")
+    else:
+        cards_sorted_by_language = sort_cards_by_language([card_data])
+        print(cards_sorted_by_language)
