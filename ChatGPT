@@ -15,3 +15,12 @@ Also check
 After checking: Sort all scanned trading cards by language.
 Create a list with all scanned cards and informations
 
+
+
+
+
+old version
+
+
+ Create a database with pokemon API to Check pokemon trading cards for cardname, Set (pokemon Erweiterungen), condition, and language of a photo or video scan of trading cards. Make a list of all German pokemon trading cards into 2 categories German and other. Code raspberry pi function that checks photo or video scans of trading cards with the pokemon database to get the right card from the database. Also check cardgame, Set (Pokemon Erweiterungen), and condition with pokemon API. Check price with Cardmarket API 
+After checking sort the trading cards by language. Create a list with all cards sorted by language 
