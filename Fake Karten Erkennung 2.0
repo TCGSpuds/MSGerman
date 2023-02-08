@@ -1,6 +1,6 @@
 
-// #Gather information and examples of genuine cards to use as a reference:
-// #Example of genuine card data stored in a list
+#Gather information and examples of genuine cards to use as a reference:
+#Example of genuine card data stored in a list
 genuine_cards = [
     {
         'card_name': 'Charizard',
@@ -16,7 +16,7 @@ genuine_cards = [
     },
     # More genuine cards
 ]
-// #Create a database of features that can be used to identify genuine cards:
+#Create a database of features that can be used to identify genuine cards:
 # Example of features used to identify genuine cards
 features = [
     'card_name',
@@ -27,7 +27,7 @@ features = [
     'card_size',
     'images'
 ]
-// #Write a Python script to extract these features from an image of a Pokemon trading card:
+#Write a Python script to extract these features from an image of a Pokemon trading card:
 import cv2
 import requests
 from io import BytesIO
@@ -45,7 +45,7 @@ def extract_features(image_url):
     return extracted_features
     
     
-// # Compare the extracted features with the reference data to determine if the card is genuine or fake:
+# Compare the extracted features with the reference data to determine if the card is genuine or fake:
 # Function to compare extracted features with genuine cards data
 def compare_features(extracted_features, genuine_cards, features):
     for genuine_card in genuine_cards:
@@ -57,7 +57,7 @@ def compare_features(extracted_features, genuine_cards, features):
         if match:
             return 'Genuine', 1.0
     return 'Fake', 0.0
-// # The comparison could be performed using machine learning algorithms:
+# The comparison could be performed using machine learning algorithms:
 # Function to classify card using machine learning
 def classify_card(extracted_features, genuine_cards, features):
     X = []
