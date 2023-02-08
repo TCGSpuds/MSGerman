@@ -1,0 +1,17 @@
+Create a database pokemon API to Check pokemon trading cards for tradingcards:
+- Name
+- Set (Erweiterungen)
+- Condition
+- Language with 2 categories "Germany" and "Other"
+
+
+Code raspberry pi function that checks photo or video scans of trading cards with the pokemon database to get the right card from the database. 
+Also check
+- Cardname
+- Price with cardmarket api
+- Set (Erweiterungen)
+- Condition with cardmarket API.
+
+After checking: Sort all scanned trading cards by language.
+Create a list with all scanned cards and informations
+
